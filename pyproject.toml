@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hierarchical-atomwise-epic"
+version = "1.0.0"
+description = "EPIC: Differentiable Energy-Force Consistent Uncertainty Quantification and Propagation for Machine-Learned Interatomic Potentials"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = [
+  "machine-learning-interatomic-potentials",
+  "uncertainty-quantification",
+  "evidential-deep-learning",
+  "mace",
+  "equivariant-neural-networks",
+  "phonon-dispersion",
+  "active-learning",
+  "materials-discovery",
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Chemistry",
+  "Topic :: Scientific/Engineering :: Physics",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "accelerate>=1.0",
+  "ase>=3.23",
+  "configargparse>=1.7",
+  "e3nn==0.4.4",
+  "GitPython>=3.1",
+  "h5py>=3.10",
+  "lmdb>=1.4",
+  "matplotlib>=3.8",
+  "matscipy>=1.0",
+  "numpy>=1.26",
+  "opt_einsum>=3.3",
+  "orjson>=3.9",
+  "pandas>=2.0",
+  "prettytable>=3.9",
+  "python-hostlist>=1.23",
+  "PyYAML>=6.0",
+  "scikit-learn>=1.3",
+  "scipy>=1.11",
+  "spglib>=2.0",
+  "torch>=2.2",
+  "torch-ema>=0.3",
+  "torchmetrics>=1.2",
+  "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+phonon = ["phonopy>=2.20", "seekpath>=2.1", "spglib>=2.0"]
+all = ["pytest>=8.0", "phonopy>=2.20", "seekpath>=2.1", "spglib>=2.0"]
+
+[project.urls]
+Homepage = "https://github.com/SuthPhy2Ai/EPIC"
+Repository = "https://github.com/SuthPhy2Ai/EPIC"
+Documentation = "https://github.com/SuthPhy2Ai/EPIC/blob/main/docs/METHOD_CODE_MAPPING.md"
+
+[project.scripts]
+epic-uq = "uq_benchmark.cli:main"
+hierarchical-epic = "uq_benchmark.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["uq_benchmark*", "maceedl_analysis*", "mace*"]
+
+[tool.setuptools.package-data]
+mace = ["py.typed", "calculators/foundations_models/*.json", "tools/torch_geometric/*.md"]
+uq_benchmark = ["config/*.yaml"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["uq_benchmark/tests"]

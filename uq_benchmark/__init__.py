@@ -1,0 +1,91 @@
+"""Leakage-safe uncertainty benchmark for EPIC and matched MACE baselines."""
+
+from .config import BenchmarkConfig, load_config
+from .s2c_covariance import (
+    BASELINE_ID,
+    DEFAULT_ETA,
+    DEFAULT_NIG_EXPONENT,
+    DEFAULT_RIDGE_MULTIPLIER,
+    DEFAULT_SIGMA0_E,
+    DEFAULT_SIGMA0_E_EPI,
+    DEFAULT_SIGMA0_F,
+    DEFAULT_SIGMA0_F_10K,
+    DEFAULT_TAU_E,
+    DEFAULT_TAU_E_EPI,
+    DEFAULT_TAU_F,
+    DEFAULT_TAU_F_10K,
+    FEATURE_DIMENSION,
+    SAMPLING_METHOD_ANALYTIC,
+    SAMPLING_METHOD_MC,
+    accumulate_force_jacobian_gram,
+    build_s2c_covariance,
+    compute_damped_evidence_scale,
+    compute_dft_review_trigger_score,
+    compute_feature_jacobian_batch,
+    compute_prescreen_score,
+    compute_s2c_atomic_force_covariances,
+    draw_s2c_weight_perturbations,
+    fit_s2c_affine_calibration,
+    sample_s2c_perturbed_pes_and_forces,
+)
+from .s2c_ellipsoids import (
+    eigendecompose_atomic_force_covariances,
+    evaluate_structure_ellipsoids,
+    export_anisotropic_ellipsoid_cif,
+)
+from .s2c_eos import (
+    DEFAULT_VOLUME_SCALES,
+    analyze_eos_uncertainty_profile,
+    evaluate_eos_uncertainty_curve,
+)
+from .s2c_phonon import (
+    classify_phonon_stability,
+    compute_spectral_jacobian_perturbation,
+    evaluate_reference_structure_properties,
+    run_s2c_phonon_dispersion,
+)
+from .types import CalibrationState, PredictionBatch
+
+__all__ = [
+    "BASELINE_ID",
+    "BenchmarkConfig",
+    "CalibrationState",
+    "DEFAULT_ETA",
+    "DEFAULT_NIG_EXPONENT",
+    "DEFAULT_RIDGE_MULTIPLIER",
+    "DEFAULT_SIGMA0_E",
+    "DEFAULT_SIGMA0_E_EPI",
+    "DEFAULT_SIGMA0_F",
+    "DEFAULT_SIGMA0_F_10K",
+    "DEFAULT_TAU_E",
+    "DEFAULT_TAU_E_EPI",
+    "DEFAULT_TAU_F",
+    "DEFAULT_TAU_F_10K",
+    "DEFAULT_VOLUME_SCALES",
+    "FEATURE_DIMENSION",
+    "PredictionBatch",
+    "SAMPLING_METHOD_ANALYTIC",
+    "SAMPLING_METHOD_MC",
+    "accumulate_force_jacobian_gram",
+    "analyze_eos_uncertainty_profile",
+    "build_s2c_covariance",
+    "classify_phonon_stability",
+    "compute_damped_evidence_scale",
+    "compute_dft_review_trigger_score",
+    "compute_feature_jacobian_batch",
+    "compute_prescreen_score",
+    "compute_s2c_atomic_force_covariances",
+    "compute_spectral_jacobian_perturbation",
+    "draw_s2c_weight_perturbations",
+    "eigendecompose_atomic_force_covariances",
+    "evaluate_eos_uncertainty_curve",
+    "evaluate_reference_structure_properties",
+    "evaluate_structure_ellipsoids",
+    "export_anisotropic_ellipsoid_cif",
+    "fit_s2c_affine_calibration",
+    "load_config",
+    "run_s2c_phonon_dispersion",
+    "sample_s2c_perturbed_pes_and_forces",
+]
+
+__version__ = "1.0.0"

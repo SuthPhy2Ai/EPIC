@@ -1,0 +1,59 @@
+{
+  "baseline_id": "hepic_s2c_nig015",
+  "description": "Reference post-hoc Gaussian affine variance calibration parameters and full MPtrj evaluation metrics for EPIC (Scheme 2c).",
+  "feature_jacobian_covariance": {
+    "feature_dimension": 64,
+    "ridge_trace_multiplier": 0.001,
+    "gram_trace_10k": 84023825.50466834,
+    "ridge_lambda_cov": 1312.872273510443,
+    "precision_condition_number": 28075.50443043621,
+    "damping_exponent_2eta": 0.15,
+    "damping_exponent_eta": 0.075
+  },
+  "force_calibration_full_79025": {
+    "n_cal_structures": 79025,
+    "n_cal_atoms": 2500556,
+    "n_cal_components": 7501668,
+    "tau_F": 47.42317194970634,
+    "a_F": 2248.957238059641,
+    "sigma0_F": 0.010240335903317568,
+    "b_F": 0.00010486447941277483,
+    "calibration_mae_eV_A": 0.07799482777328415,
+    "calibration_rmse_eV_A": 0.19138317820674583,
+    "calibration_nll": -1.0075913296493149,
+    "calibration_coverage95": 0.9586098718311714
+  },
+  "force_test_full_79020": {
+    "n_test_structures": 79020,
+    "n_test_atoms": 2494243,
+    "n_test_components": 7482729,
+    "test_mae_eV_A": 0.07630741894810814,
+    "test_rmse_eV_A": 0.27976890295060736,
+    "test_nll": -0.8334364571961109,
+    "test_coverage95": 0.9607053790134589,
+    "component_spearman": 0.6242,
+    "component_top5_auroc": 0.8649,
+    "component_top5_auprc": 0.2803,
+    "atom_ndcg": 0.8973,
+    "structure_rms_spearman": 0.6600,
+    "structure_rms_top5_auroc": 0.8831,
+    "structure_rms_top5_auprc": 0.3385,
+    "combined_ef_trigger_spearman": 0.7296,
+    "combined_ef_trigger_top5_auroc": 0.9116,
+    "combined_ef_trigger_top5_auprc": 0.4415
+  },
+  "energy_calibration_and_test_full_79020": {
+    "tau_E_total": 1.007753,
+    "sigma0_E_total_eV_per_atom": 0.02228,
+    "tau_E_epistemic": 0.5698,
+    "sigma0_E_epistemic_eV_per_atom": 0.008023,
+    "test_mae_meV_per_atom": 29.19,
+    "test_rmse_meV_per_atom": 70.70,
+    "spearman_total": 0.4591,
+    "spearman_epistemic": 0.4431,
+    "top5_auroc": 0.8907,
+    "top5_auprc": 0.3987,
+    "test_nll": -1.6253,
+    "test_coverage95": 0.9640
+  }
+}

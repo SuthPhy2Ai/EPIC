@@ -1,0 +1,52 @@
+data:
+  db_path: data/dataset.db
+  hdf5_path: null
+  split_dir: runs/shared_split
+  seed: 42
+  ratios: {train: 0.80, validation: 0.10, calibration: 0.05, test: 0.05}
+  force_calibration_size: 10000
+  force_test_size: 20000
+model:
+  r_max: 5.5
+  num_bessel: 8
+  num_polynomial_cutoff: 5
+  max_ell: 3
+  num_interactions: 2
+  num_channels: 64
+  correlation: 3
+  num_elements: 118
+training:
+  num_gpus: 8
+  global_batch_size: 64
+  per_gpu_batch_size: 8
+  gradient_accumulation_steps: 1
+  num_workers: 2
+  prefetch_factor: 2
+  pin_memory: true
+  learning_rate: 0.0025
+  max_epochs: 300
+  early_stopping_patience: 20
+  scheduler_patience: 2
+  force_weight: 2000.0
+  force_loss: conditional_huber
+  force_huber_delta: 0.01
+  lambda_anneal_epochs: 5
+  epic_lambda_max: [0.001]
+  ensemble_seeds: [42]
+epic:
+  force_samples: 32
+  sample_seed: 42
+  hierarchical_allocation_weight: 0.1
+  hierarchical_force_error_floor: 1.0e-6
+llpr:
+  ridge_multipliers: [1.0e-8, 1.0e-6, 1.0e-4, 1.0e-2]
+  force_samples: 32
+  sample_seed: 42
+evaluation:
+  coverage_levels: [0.50, 0.80, 0.90, 0.95]
+  bootstrap_replicates: 1000
+  bootstrap_seed: 42
+  danger_quantile: 0.95
+  budget_fractions: [0.01, 0.05, 0.10]
+  benchmark_structures: 10000
+output_root: runs/epic_hierarchical
